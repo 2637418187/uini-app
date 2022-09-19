@@ -1,0 +1,24 @@
+{
+  "name": "uini-app2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2637418187/uini-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2637418187/uini-app/issues"
+  },
+  "homepage": "https://github.com/2637418187/uini-app#readme",
+  "dependencies": {
+    "@escook/request-miniprogram": "^0.2.1",
+    "miniprogram-api-promise": "^1.0.4"
+  }
+}

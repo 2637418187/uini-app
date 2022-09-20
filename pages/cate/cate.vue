@@ -1,6 +1,8 @@
 <template>
   <view>
-    <view class="scroll-view-container">
+    <!-- <my-search :bgcolor="'#dddddd'" :radius="2"></my-search> -->
+    <my-search @click.native="gotoSearch"></my-search>
+    <view class="scroll-view-container">  
           <!-- 左侧的滚动视图区域 -->
           <scroll-view class="left-scroll-view" scroll-y :style="{height: wh + 'px'}">
             <block v-for="(item, i) in cateList" :key="i">
@@ -48,9 +50,9 @@
       })
       // 获取当前可用窗口的高度
       const getWindowHeight = () => {
-        let sysInfo = uni.getSystemInfoSync()
-        // 为 wh 窗口可用高度动态赋值
-        data.wh = sysInfo.windowHeight
+       let sysInfo = uni.getSystemInfoSync()
+         // 可用高度 = 屏幕高度 - navigationBar高度 - tabBar高度 - 自定义的search组件高度
+        data.wh = sysInfo.windowHeight - 50
       }
        const getCateList = async () => {
           // 发起请求
@@ -79,6 +81,13 @@
               url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
             })
         }
+        //跳转搜索页面
+        const gotoSearch = () => {
+          // console.log("ok!!");
+           uni.navigateTo({
+                 url: '/subpkg/search/search'
+               })
+        }
         // 网络请求状态
         const Toast = (title) => {
            return uni.showToast({
@@ -93,7 +102,8 @@
         Toast,
         getCateList,
         activeChanged,
-        gotoGoodsList
+        gotoGoodsList,
+        gotoSearch
       }
     }
   }
